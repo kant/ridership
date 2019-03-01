@@ -65,4 +65,4 @@ for t in tracts:
         gj.close()
 
 #%%
-os.system('for f in data/geojson/msa_tracts/*.json; do mapshaper $f -proj +init=EPSG:4326 from=+init=EPSG:3395 -o data/output/tracts/${f##*/} format=topojson; done')
+os.system('for f in data/geojson/msa_tracts/*.json; do mapshaper $f -proj +init=EPSG:4326 from=+init=EPSG:3395 -o data/output/tracts/${f##*/} format=geojson precision=0.0001; done')
