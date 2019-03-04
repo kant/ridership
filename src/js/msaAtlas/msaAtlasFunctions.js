@@ -168,6 +168,7 @@ const msaAtlasFunctions = {
           currentCensusField,
           setMinScale,
           atlasOuterContainer,
+          mobile,
         });
         // const camera = getCurrentCamera();
         // setMinScale(camera.zoom);
@@ -189,6 +190,7 @@ const msaAtlasFunctions = {
     saveCamera,
     setMinScale,
     atlasOuterContainer,
+    mobile,
   }) {
     const {
       jumpToMSA,
@@ -206,6 +208,7 @@ const msaAtlasFunctions = {
       msaAtlas,
       tractGeo,
       currentCensusField,
+      mobile,
     });
     atlasOuterContainer.select('.atlas__msa-name').text(msa.name);
   },
@@ -235,13 +238,14 @@ const msaAtlasFunctions = {
     msaAtlas,
     tractGeo,
     currentCensusField,
-
+    mobile,
   }) {
     const currentTractSource = msaAtlas.getSource('tracts');
     if (currentTractSource === undefined) {
       msaAtlas.addSource('tracts', {
         type: 'geojson',
         data: tractGeo,
+        buffer: 0,
       });
     } else {
       msaAtlas.removeLayer('tract-fill');
@@ -254,33 +258,23 @@ const msaAtlasFunctions = {
       source: 'tracts',
       layout: {},
       paint: {
-        'fill-color': ['get', `${currentCensusField.value}-color`],
-        'fill-opacity': 0.5,
-      },
-    };
-
-    const tractOutlineLayer = {
-      id: 'tract-outline',
-      type: 'line',
-      source: 'tracts',
-      layout: {
-        'line-join': 'round',
-      },
-      paint: {
-        'line-color': '#000000',
-        'line-width': 3,
-
-        'line-opacity': [
+        'fill-color':
+        [
           'case',
           ['boolean', ['feature-state', 'hover'], false],
+          '#666',
+          ['get', `${currentCensusField.value}-color`],
+        ],
+        'fill-opacity': [
+          'case',
+          ['boolean', ['literal', mobile], true],
           1,
-          0,
+          0.5,
         ],
       },
     };
 
     msaAtlas.addLayer(tractLayer, 'building');
-    msaAtlas.addLayer(tractOutlineLayer, 'road-label-small');
   },
 };
 

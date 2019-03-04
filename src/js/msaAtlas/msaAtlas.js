@@ -120,6 +120,7 @@ class MSAAtlas {
       msa,
       setMinScale,
       atlasOuterContainer,
+      mobile,
     } = props;
     const {
       init,
@@ -144,6 +145,7 @@ class MSAAtlas {
         props.camera = camera;
       },
       atlasOuterContainer,
+      mobile,
     });
 
     this.updateAgencyLayers();
