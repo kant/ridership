@@ -2,6 +2,7 @@ mapshaper data/geojson/transit/**/routes.geojson combine-files \
   -merge-layers force \
   -filter "operated_by_name != 'Amtrak'" \
   -filter-fields high_frequency,name,operated_by_name,vehicle_type \
+  -simplify 50% \
   -o data/output/routes.geojson
 
 python bin/ta_names.py
