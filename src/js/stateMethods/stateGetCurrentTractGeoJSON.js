@@ -31,10 +31,11 @@ const processGeoJSON = ({
 }) => {
   const cachedTractData = data.get('cachedTractData');
   const { censusData, tractTopo } = cachedTractData.get(msa.msaId);
-  const tractGeoRaw = topojson.feature(
-    tractTopo,
-    tractTopo.objects[`tract-${msa.msaId}`],
-  );
+  const tractGeoRaw = tractTopo;
+  // topojson.feature(
+  //   tractTopo,
+  //   tractTopo.objects[`tract-${msa.msaId}`],
+  // );
 
   const cachedTractGeoJSON = data.get('cachedTractGeoJSON');
   const getCensusTable = ({ year }) => censusData.rows
