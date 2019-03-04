@@ -204,12 +204,12 @@ const msaAtlasFunctions = {
 
       setMinScale,
     });
-    drawTracts({
-      msaAtlas,
-      tractGeo,
-      currentCensusField,
-      mobile,
-    });
+    // drawTracts({
+    //   msaAtlas,
+    //   tractGeo,
+    //   currentCensusField,
+    //   mobile,
+    // });
     atlasOuterContainer.select('.atlas__msa-name').text(msa.name);
   },
   jumpToMSA({

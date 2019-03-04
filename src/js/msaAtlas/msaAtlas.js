@@ -173,11 +173,11 @@ class MSAAtlas {
       drawTracts,
     } = msaAtlasFunctions;
 
-    drawTracts({
-      msaAtlas,
-      tractGeo,
-      currentCensusField,
-    });
+    // drawTracts({
+    //   msaAtlas,
+    //   tractGeo,
+    //   currentCensusField,
+    // });
     return this;
   }
 
