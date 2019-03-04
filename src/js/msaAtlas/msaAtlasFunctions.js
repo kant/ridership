@@ -274,7 +274,7 @@ const msaAtlasFunctions = {
       },
     };
 
-    msaAtlas.addLayer(tractLayer, 'building');
+    // msaAtlas.addLayer(tractLayer, 'building');
   },
 };
 

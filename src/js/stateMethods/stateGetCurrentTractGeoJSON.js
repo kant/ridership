@@ -98,7 +98,7 @@ const processGeoJSON = ({
     censusField,
   });
 
-  updateComponents(tractGeoFiltered);
+  updateComponents({ tractGeo: tractGeoFiltered, tractData: cachedTractData });
 };
 
 const loadTractData = ({
